@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="901a3fda-5915-4d0a-8451-729c178062cd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GivingData.py" afterPath="$PROJECT_DIR$/GivingData.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Perceptron.py" afterPath="$PROJECT_DIR$/Perceptron.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +17,18 @@
       <file leaf-file-name="GivingData.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GivingData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="311">
+              <caret line="33" column="53" lean-forward="true" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="training-A.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/training-A.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -309,13 +319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/training-A.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Perceptron.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
@@ -356,10 +359,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/training-A.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GivingData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="311">
+          <caret line="33" column="53" lean-forward="true" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
           <folding />
         </state>
       </provider>
