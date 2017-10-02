@@ -16,6 +16,8 @@ class Perceptron:
 
         # self.speed = learning_rate
         # learning_rate = 0.1
+        # learning_rate = 0.5
+
 
         self.weights = []
         for x in range(0, num_weights):
@@ -33,13 +35,15 @@ class Perceptron:
             return ()
 
         """
-        activate_current_node method 
+        activate_function 
 
         Parameters
         w = the desired output
         x = activation of current node
         """
-        def activate_current_node (self, inputs):
+        #The activation is then transformed into an output value or
+        #prediction using a transfer function, such as the step transfer function.
+        def activation_function (self, inputs):
             sum = 0
             # multiply inputs by weights and sum them
             for x in range(0, len(self.weights)):
