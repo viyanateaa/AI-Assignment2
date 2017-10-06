@@ -1,4 +1,4 @@
- import GivingData
+ import faces
 """
   Perceptron Classifier
 

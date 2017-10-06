@@ -1,5 +1,5 @@
 
-import GivingData
+import faces
 
 class Image:
 
