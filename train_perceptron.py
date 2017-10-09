@@ -5,8 +5,8 @@ class Train_perceptron:
         self.perceptron = perceptron
         self.image = image
         self.speed = 0.05
-        self.rightanswer = rightanswer
-        self.error=0
+        self.rightanswer = int(rightanswer)
+        self.error = 0
 
         if self.rightanswer == self.perceptron.getEmotion():
             self.wantedanswer = 1
@@ -16,7 +16,7 @@ class Train_perceptron:
 
     def calculateError(self):
         error = abs(float(self.wantedanswer) - self.perceptron.getOutput())
-        self.error=error
+        self.error = error
         return error
 
     def calculateNewWeights(self):
@@ -26,11 +26,13 @@ class Train_perceptron:
         newWeights = []
 
         for i in range(len(weights)):
-            delta_W = self.speed * error * float(self.image[i])
+            delta_W = self.speed * error * ((float(self.image[i]))/32)
             newWeight = weights[i] + delta_W
             newWeights.append(newWeight)
 
         return newWeights
+
+
 
     def train(self):
         newWeights = self.calculateNewWeights()

@@ -1,9 +1,5 @@
 import random
 import sys
-import time
-
-# from perceptron import Perceptron
-# from train_perceptron import Train_perceptron
 import perceptron
 import train_perceptron
 
@@ -28,10 +24,7 @@ def loadGivingData(file_name):
         line = pixel_data[i]
         if i % 20 != 0 or i == 0:
             list.extend(line)
-
-
         else:
-            # print (len(list), "i= ", i)
             images_temp.append(list)
             while len(list) > 0:
                 list.pop()
@@ -59,7 +52,6 @@ def loadAnswerData(facit_name):
                             splitlines = cleanedline.split()
                             facit_data.append(splitlines[1])
 
-                            # print (facit_data[:10])
     return facit_data
 
 
@@ -127,16 +119,16 @@ if __name__ == '__main__':
 
     allperceptron = [happy, sad, mischievous, angry]
 
-
     result = []
 
     percentage=0
     while percentage < 0.5:
-        errorSum = 0
+
         images, facit = shuffle(images, facit)
         train_data, test_data = split_data(images)
         train_facit, test_facit = split_data(facit)
         for i in range(len(train_data)):
+            errorSum = 0
             for j in range(len(allperceptron)):
                 allperceptron[j].activation_function(train_data[i])
                 training_session = train_perceptron.Train_perceptron(allperceptron[j], train_data[i], train_facit[i])
@@ -150,4 +142,4 @@ if __name__ == '__main__':
         percentage=(float(numberRights)/(len(train_facit)))
         print ("I got %.2f percent correct this training round"%(percentage*100))
         print(errorSum)
-        time.sleep(1)
+        #time.sleep(1)
