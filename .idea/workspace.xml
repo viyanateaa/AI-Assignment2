@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="901a3fda-5915-4d0a-8451-729c178062cd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/train_perceptron.py" afterPath="$PROJECT_DIR$/train_perceptron.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,21 +14,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="train_perceptron.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="train_perceptron.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train_perceptron.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            <state relative-caret-position="88">
+              <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="perceptron.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="perceptron.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/perceptron.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-123">
-              <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+            <state relative-caret-position="365">
+              <caret line="47" column="43" lean-forward="true" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -38,8 +39,8 @@
       <file leaf-file-name="faces.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/faces.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1890">
-              <caret line="126" column="47" lean-forward="false" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
+            <state relative-caret-position="137">
+              <caret line="143" column="26" lean-forward="true" selection-start-line="143" selection-start-column="26" selection-end-line="143" selection-end-column="26" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -81,8 +82,8 @@
         <option value="$PROJECT_DIR$/facit-A.txt" />
         <option value="$PROJECT_DIR$/training-A.txt" />
         <option value="$PROJECT_DIR$/perceptron.py" />
-        <option value="$PROJECT_DIR$/train_perceptron.py" />
         <option value="$PROJECT_DIR$/faces.py" />
+        <option value="$PROJECT_DIR$/train_perceptron.py" />
       </list>
     </option>
   </component>
@@ -316,16 +317,31 @@
       <option name="project" value="LOCAL" />
       <updated>1507728527422</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed activation function">
+      <created>1507728581304</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1507728581304</updated>
+    </task>
+    <task id="LOCAL-00003" summary="working maybe">
+      <created>1507730326750</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1507730326750</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="52" y="0" width="1388" height="873" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925683" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.58926344" sideWeight="0.5028818" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.58926344" sideWeight="0.49711815" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26716605" sideWeight="0.10590778" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26716605" sideWeight="0.8940922" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909784" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -368,7 +384,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed activation function" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed activation function" />
+    <MESSAGE value="working maybe" />
+    <option name="LAST_COMMIT_MESSAGE" value="working maybe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -739,31 +756,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_perceptron.py">
+    <entry file="file://$PROJECT_DIR$/perceptron.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="365">
+          <caret line="47" column="43" lean-forward="true" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/faces.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1890">
-          <caret line="126" column="47" lean-forward="false" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
+        <state relative-caret-position="137">
+          <caret line="143" column="26" lean-forward="true" selection-start-line="143" selection-start-column="26" selection-end-line="143" selection-end-column="26" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/perceptron.py">
+    <entry file="file://$PROJECT_DIR$/train_perceptron.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="88">
+          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
