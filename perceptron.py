@@ -1,7 +1,7 @@
 import faces
 import random
 import math
-import numpy
+
 """
   Perceptron Classifier
 
@@ -12,12 +12,13 @@ import numpy
 
 """
 
-
 class Perceptron:
+
     def __init__(self, weights, learning_rate, emotion):
         self.emotion = emotion
         self.speed = learning_rate
         self.weights = weights
+
         self.output = float()
 
     def activation_function(self, inputs):
@@ -30,13 +31,17 @@ class Perceptron:
 
             sum+=a*b
 
-            e = math.e
+           # print("weight ", a)
 
-            result = 1 / (1 + e ** - sum)
+            # print("sum ", sum)
 
-            self.output = result
+        e = math.e
 
-            return result
+        result = 1 / (1 + e ** (- sum))
+
+        self.output = result
+           # print("Activerining fuction" , result)
+        return result
 
     def updateWeights(self, newWeights):
         self.weights = newWeights

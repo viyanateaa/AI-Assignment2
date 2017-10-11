@@ -26,8 +26,9 @@ def loadGivingData(file_name):
             list.extend(line)
         else:
             images_temp.append(list)
-            while len(list) > 0:
-                list.pop()
+            #while len(list) > 0:
+             #   list.pop()
+            list = []
             line = pixel_data[i]
             list.extend(line)
     images_temp.append(list)
@@ -58,7 +59,7 @@ def loadAnswerData(facit_name):
 def createWeights():
     randomValues = []
     for j in range(0, 400):
-        randomValue = random.uniform(0, 1)
+        randomValue = random.uniform(0, 0.1)
         randomValues.append(randomValue)
     return randomValues
 
@@ -98,6 +99,18 @@ if __name__ == '__main__':
 
     images = loadGivingData(traning_images)
     facit = loadAnswerData(facit_image)
+    #print("train ")
+    #print(images[0])
+    #print(images[1])
+    #print(images[2])
+    #print(images[3])
+
+
+    #print("facit ")
+    #print(facit[0])
+    #print(facit[1])
+    #print(facit[2])
+    #print(facit[3])
 
     test_data = []
     train_data = []
@@ -105,41 +118,55 @@ if __name__ == '__main__':
     test_facit = []
     train_facit = []
 
-
     """Creating perceptrons"""
     weights_happy = createWeights()
     weights_sad = createWeights()
     weights_mischievous = createWeights()
     weights_angry = createWeights()
 
-    happy = perceptron.Perceptron(weights_happy, 0.5, 1)
-    sad = perceptron.Perceptron(weights_sad, 0.5, 2)
-    mischievous = perceptron.Perceptron(weights_mischievous, 0.5, 3)
-    angry = perceptron.Perceptron(weights_angry, 0.5, 4)
+    happy = perceptron.Perceptron(weights_happy, 0.01, 1)
+    sad = perceptron.Perceptron(weights_sad, 0.01, 2)
+    mischievous = perceptron.Perceptron(weights_mischievous, 0.01, 3)
+    angry = perceptron.Perceptron(weights_angry, 0.01, 4)
+
+
 
     allperceptron = [happy, sad, mischievous, angry]
 
     result = []
 
-    percentage=0
+    percentage = 0
+    errorSum = 0
+    # 65%
     while percentage < 0.5:
 
         images, facit = shuffle(images, facit)
         train_data, test_data = split_data(images)
         train_facit, test_facit = split_data(facit)
+
+        #print(len(train_data))
+        #print(len(train_facit))
+
+
         for i in range(len(train_data)):
             errorSum = 0
             for j in range(len(allperceptron)):
-                allperceptron[j].activation_function(train_data[i])
+                output=allperceptron[j].activation_function(train_data[i])
+                print(output)
                 training_session = train_perceptron.Train_perceptron(allperceptron[j], train_data[i], train_facit[i])
                 training_session.train()
-                errorSum += training_session.getError()
+                errorSum += abs(training_session.getError())
+
             winner = whoWon(allperceptron)
             result.append(winner)
 
         numberRights = compareResult(train_facit, result)
 
-        percentage=(float(numberRights)/(len(train_facit)))
-        print ("I got %.2f percent correct this training round"%(percentage*100))
-        print(errorSum)
+        percentage = (float(numberRights) / (len(train_facit)))
+
+        #print ("I got %.2f percent correct this training round" % (percentage * 100))
+       # print(errorSum)
+        #print(allperceptron[0].getWeights())
+
+
         #time.sleep(1)
