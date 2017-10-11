@@ -118,16 +118,19 @@ if __name__ == '__main__':
     test_facit = []
     train_facit = []
 
+    train_data, test_data = split_data(images)
+    train_facit, test_facit = split_data(facit)
+
     """Creating perceptrons"""
     weights_happy = createWeights()
     weights_sad = createWeights()
     weights_mischievous = createWeights()
     weights_angry = createWeights()
 
-    happy = perceptron.Perceptron(weights_happy, 0.01, 1)
-    sad = perceptron.Perceptron(weights_sad, 0.01, 2)
-    mischievous = perceptron.Perceptron(weights_mischievous, 0.01, 3)
-    angry = perceptron.Perceptron(weights_angry, 0.01, 4)
+    happy = perceptron.Perceptron(weights_happy, 1)
+    sad = perceptron.Perceptron(weights_sad, 2)
+    mischievous = perceptron.Perceptron(weights_mischievous, 3)
+    angry = perceptron.Perceptron(weights_angry, 4)
 
 
 
@@ -138,11 +141,12 @@ if __name__ == '__main__':
     percentage = 0
     errorSum = 0
     # 65%
-    while percentage < 0.5:
+    while percentage < 0.8:
+        result = []
 
-        images, facit = shuffle(images, facit)
-        train_data, test_data = split_data(images)
-        train_facit, test_facit = split_data(facit)
+        #images, facit = shuffle(images, facit)
+        #train_data, test_data = split_data(images)
+        #train_facit, test_facit = split_data(facit)
 
         #print(len(train_data))
         #print(len(train_facit))
@@ -150,10 +154,11 @@ if __name__ == '__main__':
 
         for i in range(len(train_data)):
             errorSum = 0
+
             for j in range(len(allperceptron)):
                 output=allperceptron[j].activation_function(train_data[i])
-                print(output)
-                training_session = train_perceptron.Train_perceptron(allperceptron[j], train_data[i], train_facit[i])
+                #print(output)
+                training_session = train_perceptron.Train_perceptron(allperceptron[j], train_data[i], train_facit[i],output)
                 training_session.train()
                 errorSum += abs(training_session.getError())
 
@@ -162,9 +167,10 @@ if __name__ == '__main__':
 
         numberRights = compareResult(train_facit, result)
 
+
         percentage = (float(numberRights) / (len(train_facit)))
 
-        #print ("I got %.2f percent correct this training round" % (percentage * 100))
+        print ("I got %.2f percent correct this training round" % (percentage * 100))
        # print(errorSum)
         #print(allperceptron[0].getWeights())
 

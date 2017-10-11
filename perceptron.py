@@ -14,9 +14,8 @@ import math
 
 class Perceptron:
 
-    def __init__(self, weights, learning_rate, emotion):
+    def __init__(self, weights, emotion):
         self.emotion = emotion
-        self.speed = learning_rate
         self.weights = weights
 
         self.output = float()
@@ -43,8 +42,11 @@ class Perceptron:
            # print("Activerining fuction" , result)
         return result
 
-    def updateWeights(self, newWeights):
-        self.weights = newWeights
+    def updateWeights(self, delta_W_arr):
+        #print(self.weights[0])
+        for i in range(len(self.weights)):
+            self.weights[i]+=delta_W_arr[i]
+        #print(self.weights[0])
 
     def getWeights(self):
         return self.weights
@@ -54,5 +56,8 @@ class Perceptron:
 
     def getEmotion(self):
         return self.emotion
+
+
+
 
 

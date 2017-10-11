@@ -1,12 +1,13 @@
 # import perceptron
 
 class Train_perceptron:
-    def __init__(self, perceptron, image,rightanswer):
+    def __init__(self, perceptron, image,rightanswer,output):
         self.perceptron = perceptron
         self.image = image
         self.speed = 0.005
         self.rightanswer = int(rightanswer)
         self.error = 0
+        self.output=output
 
         if self.rightanswer == self.perceptron.getEmotion():
             self.wantedanswer = 1
@@ -15,7 +16,7 @@ class Train_perceptron:
 
 
     def calculateError(self):
-        error = float(self.wantedanswer) - self.perceptron.getOutput()
+        error = float(self.wantedanswer) - self.output
         self.error = error
         #print("Error!!!", error)
         return error
@@ -25,21 +26,19 @@ class Train_perceptron:
         weights = self.perceptron.getWeights()
 
 
-        newWeights = []
-
+        delta_W_arr = []
         for i in range(len(weights)):
             delta_W = self.speed * error * ((float(self.image[i]))/32)
             #print(delta_W)
-            newWeight = weights[i] + delta_W
-            newWeights.append(newWeight)
+            delta_W_arr.append(delta_W)
 
-        return newWeights
+        return delta_W_arr
 
 
 
     def train(self):
-        newWeights = self.calculateNewWeights()
-        self.perceptron.updateWeights(newWeights)
+        delta_W_arr = self.calculateNewWeights()
+        self.perceptron.updateWeights(delta_W_arr)
 
     def getError(self):
         return self.error
