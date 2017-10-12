@@ -104,6 +104,8 @@ if __name__ == '__main__':
     final_test_images = loadGivingData(final_test_file)
     final_test_facit=loadAnswerData(final_test_facit)
 
+
+    """Creating the lists"""
     test_data = []
     train_data = []
 
@@ -114,17 +116,20 @@ if __name__ == '__main__':
     garbage = []
 
     images, facit = shuffle(images, facit)
+
+    """Splitting the data"""
     train_data, test_data = split_data(images,0.75)
     train_facit, test_facit = split_data(facit,0.75)
-
     final_test_data, garbage = split_data(final_test_images, 1.0)
 
-    """Creating perceptrons"""
+
+    """Creating weights"""
     weights_happy = createWeights()
     weights_sad = createWeights()
     weights_mischievous = createWeights()
     weights_angry = createWeights()
 
+    """Creating perceptrons"""
     happy = perceptron.Perceptron(weights_happy, 1)
     sad = perceptron.Perceptron(weights_sad, 2)
     mischievous = perceptron.Perceptron(weights_mischievous, 3)
@@ -132,30 +137,21 @@ if __name__ == '__main__':
 
     allperceptron = [happy, sad, mischievous, angry]
 
+    """Initalizing variables"""
     result = []
-
     percentage = 0
     errorSum = 0
-    # 65%
-   # while percentage < 0.8:
     numberOfRounds = 50
+
+    """TRAINING WITH 75% OF DATA"""
     for x in range(numberOfRounds):
         result = []
-
-        #images, facit = shuffle(images, facit)
-        #train_data, test_data = split_data(images)
-        #train_facit, test_facit = split_data(facit)
-
-        #print(len(train_data))
-        #print(len(train_facit))
-
 
         for i in range(len(train_data)):
             errorSum = 0
 
             for j in range(len(allperceptron)):
                 output=allperceptron[j].activation_function(train_data[i])
-                #print(output)
                 training_session = train_perceptron.Train_perceptron(allperceptron[j], train_data[i], train_facit[i],output)
                 training_session.train()
                 errorSum += abs(training_session.getError())
@@ -165,14 +161,13 @@ if __name__ == '__main__':
 
         numberRights = compareResult(train_facit, result)
 
-
         percentage = (float(numberRights) / (len(train_facit)))
 
         print ("I got %.2f percent correct this training round" % (percentage * 100))
 
 
 
-    """TEST"""
+    """TESTING WITH REMAINING 25% OF DATA"""
 
     test_result = []
     for w in range(len(test_data)):
@@ -188,8 +183,7 @@ if __name__ == '__main__':
     print("I got %.2f percent correct this test round" % (percentage * 100))
 
 
-    """FINAL TEST"""
-    file = open("result.txt", "w+")
+    """FINAL TEST WITH NEW DATA"""
     final_test_result = []
     for m in range(len(final_test_data)):
         for n in range(len(allperceptron)):
@@ -206,6 +200,7 @@ if __name__ == '__main__':
 
 
     #Write ansewer to file
+    file = open("result.txt", "w+")
     for p in range (len(test_result)):
         file.write("%d\r\n" % (test_result[p]))
 
