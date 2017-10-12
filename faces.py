@@ -33,8 +33,8 @@ def loadGivingData(file_name):
     return images_temp
 
 
-def split_data(a_list):
-    half = int(len(a_list) * 0.75)
+def split_data(a_list, split):
+    half = int(len(a_list) * split)
     return a_list[:half], a_list[half:]
 
 
@@ -97,23 +97,12 @@ if __name__ == '__main__':
     traning_images = sys.argv[1]
     facit_image = sys.argv[2]
     final_test_file = sys.argv[3]
+    final_test_facit= sys.argv[4]
 
     images = loadGivingData(traning_images)
     facit = loadAnswerData(facit_image)
     final_test_images = loadGivingData(final_test_file)
-    print(final_test_images)
-    #print("train ")
-    #print(images[0])
-    #print(images[1])
-    #print(images[2])
-    #print(images[3])
-
-
-    #print("facit ")
-    #print(facit[0])
-    #print(facit[1])
-    #print(facit[2])
-    #print(facit[3])
+    final_test_facit=loadAnswerData(final_test_facit)
 
     test_data = []
     train_data = []
@@ -121,9 +110,14 @@ if __name__ == '__main__':
     test_facit = []
     train_facit = []
 
+    final_test_data = []
+    garbage = []
+
     images, facit = shuffle(images, facit)
-    train_data, test_data = split_data(images)
-    train_facit, test_facit = split_data(facit)
+    train_data, test_data = split_data(images,0.75)
+    train_facit, test_facit = split_data(facit,0.75)
+
+    final_test_data, garbage = split_data(final_test_images, 1.0)
 
     """Creating perceptrons"""
     weights_happy = createWeights()
@@ -144,7 +138,7 @@ if __name__ == '__main__':
     errorSum = 0
     # 65%
    # while percentage < 0.8:
-    numberOfRounds = 1
+    numberOfRounds = 50
     for x in range(numberOfRounds):
         result = []
 
@@ -196,13 +190,27 @@ if __name__ == '__main__':
 
     """FINAL TEST"""
     file = open("result.txt", "w+")
-    test_result = []
-    for m in range(len(final_test_file)):
+    final_test_result = []
+    for m in range(len(final_test_data)):
         for n in range(len(allperceptron)):
-            output = allperceptron[n].activation_function(final_test_file[m])
+            output = allperceptron[n].activation_function(final_test_data[m])
         winner = whoWon(allperceptron)
-        test_result.append(winner)
+        final_test_result.append(winner)
+
+    numberRights = compareResult(final_test_facit, final_test_result)
+
+    percentage = (float(numberRights) / (len(final_test_facit)))
+
+    print("I got %.2f percent correct this final test round" % (percentage * 100))
+
+
+
     #Write ansewer to file
     for p in range (len(test_result)):
-        file.write(test_result[p])
+        file.write("%d\r\n" % (test_result[p]))
+
     file.close()
+
+
+
+
