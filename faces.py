@@ -33,6 +33,19 @@ def loadGivingData(file_name):
     return images_temp
 
 
+def loadImagesName(file_name):
+    images_name= []
+    with open(file_name) as txt_file:
+        for line in txt_file:
+            cleanedLine = line.strip()
+
+            if not cleanedLine.startswith('#'):
+                if not cleanedLine.startswith('\n'):
+                    if cleanedLine.startswith('I'):
+                        images_name.append(cleanedLine)
+    return images_name
+
+
 def split_data(a_list, split):
     half = int(len(a_list) * split)
     return a_list[:half], a_list[half:]
@@ -97,12 +110,14 @@ if __name__ == '__main__':
     traning_images = sys.argv[1]
     facit_image = sys.argv[2]
     final_test_file = sys.argv[3]
-    final_test_facit= sys.argv[4]
+    #final_test_facit= sys.argv[4]
 
     images = loadGivingData(traning_images)
     facit = loadAnswerData(facit_image)
     final_test_images = loadGivingData(final_test_file)
-    final_test_facit=loadAnswerData(final_test_facit)
+    images_names=loadImagesName(final_test_file)
+
+    #final_test_facit=loadAnswerData(final_test_facit)
 
 
     """Creating the lists"""
@@ -191,18 +206,18 @@ if __name__ == '__main__':
         winner = whoWon(allperceptron)
         final_test_result.append(winner)
 
-    numberRights = compareResult(final_test_facit, final_test_result)
+    # numberRights = compareResult(final_test_facit, final_test_result)
+    #
+    # percentage = (float(numberRights) / (len(final_test_facit)))
+    #
+    # print("I got %.2f percent correct this final test round" % (percentage * 100))
 
-    percentage = (float(numberRights) / (len(final_test_facit)))
-
-    print("I got %.2f percent correct this final test round" % (percentage * 100))
 
 
-
-    #Write ansewer to file
+    """Writning answer to file"""
     file = open("result.txt", "w+")
-    for p in range (len(test_result)):
-        file.write("%d\r\n" % (test_result[p]))
+    for p in range(len(final_test_result)):
+        file.write("%s %d\n" % (images_names[p], final_test_result[p]))
 
     file.close()
 
