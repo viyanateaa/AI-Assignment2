@@ -25,22 +25,16 @@ class Perceptron:
         list = []
         for j in range(len(self.weights)):
             a = float(self.weights[j])
-
             b = float(inputs[j])/float(32)
-
             sum+=a*b
-
-           # print("weight ", a)
-
-            # print("sum ", sum)
-
         e = math.e
-
         result = 1 / (1 + e ** (- sum))
-
         self.output = result
            # print("Activerining fuction" , result)
         return result
+
+
+
 
     def updateWeights(self, delta_W_arr):
         #print(self.weights[0])

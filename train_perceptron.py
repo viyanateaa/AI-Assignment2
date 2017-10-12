@@ -4,7 +4,7 @@ class Train_perceptron:
     def __init__(self, perceptron, image,rightanswer,output):
         self.perceptron = perceptron
         self.image = image
-        self.speed = 0.000005
+        self.speed = 0.0005
         self.rightanswer = int(rightanswer)
         self.error = 0
         self.output=output
