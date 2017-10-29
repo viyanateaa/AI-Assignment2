@@ -244,7 +244,7 @@ if __name__ == '__main__':
 
         percentage = (float(numberRights) / (len(train_facit)))
 
-        print ("I got %.2f percent correct this training round" % (percentage * 100))
+        print ("#I got %.2f percent correct this training round" % (percentage * 100))
 
 
 
@@ -261,7 +261,7 @@ if __name__ == '__main__':
 
     percentage = (float(numberRights) / (len(test_facit)))
 
-    print("I got %.2f percent correct this test round" % (percentage * 100))
+    print("#I got %.2f percent correct this test round" % (percentage * 100))
 
 
     """FINAL TEST WITH NEW DATA"""
@@ -273,13 +273,20 @@ if __name__ == '__main__':
         final_test_result.append(winner)
 
 
-
-    """Writning answer to file"""
-    file = open("result.txt", "w+")
+    """Writing answer to output"""
     for p in range(len(final_test_result)):
-        file.write("%s %d\n" % (images_names[p], final_test_result[p]))
+        print("%s %d\n" %(images_names[p], final_test_result[p]))
+        #print(images_names[p])
+        #print(final_test_result[p])
 
-    file.close()
+
+
+    # """Writning answer to file"""
+    # file = open("result.txt", "w+")
+    # for p in range(len(final_test_result)):
+    #     file.write("%s %d\n" % (images_names[p], final_test_result[p]))
+    #
+    # file.close()
 
 
 
